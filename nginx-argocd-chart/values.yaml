@@ -13,8 +13,8 @@ image: registry-new.devnerd.store/reactjs-image-nexus:v0.1.0
   # tag: "latest"
 
 # private docker registry 
-imagePullSecrets: []
-  # - name: secret-name
+imagePullSecrets: 
+   - name: nexus-registry-secret-v2 
 nameOverride: ""
 fullnameOverride: ""
 
