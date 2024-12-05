@@ -4,7 +4,9 @@
 
 replicaCount: 1
 
-image: 
+image:
+  repository: registry-new.devnerd.store/reactjs-image-nexus
+  tag: b276c0bd 
   repository: "69966/reactjs-jenkins-nginx"
   # repository: "nginx"
   pullPolicy: IfNotPresent
