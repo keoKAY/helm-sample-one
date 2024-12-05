@@ -5,12 +5,12 @@
 replicaCount: 4
 
 image:
-  # repository: "69966/reactjs-jenkins-nginx"
-  repository: "nginx"
+  repository: "69966/reactjs-jenkins-nginx"
+  # repository: "nginx"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  # tag: "v0.0.11"
-  tag: "latest"
+  tag: "v0.0.11"
+  # tag: "latest"
 
 # private docker registry 
 imagePullSecrets: []
