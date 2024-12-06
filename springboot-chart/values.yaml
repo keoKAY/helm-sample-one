@@ -87,12 +87,6 @@ volumes:
   - name: image-vol 
     persistentVolumeClaim: 
       claimName: postgres-vol-postgres-app-0
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
-
-# Additional volumeMounts on the output Deployment definition.
 volumeMounts: 
   - name: image-vol
     mountPath: "/app/filestorage/images"
