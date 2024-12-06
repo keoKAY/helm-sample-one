@@ -8,7 +8,7 @@ image:
   # repository: "nginx"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "04894bba"
+  tag: "44f30f98"
   # tag: "latest"
 # private docker registry 
 imagePullSecrets:
