@@ -3,18 +3,15 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-
 image:
-  repository: nginx
+  repository: registry-new.devnerd.store/spring-fileupload-image-nexus
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
-
-imagePullSecrets: 
+  tag: "fb42d87f"
+imagePullSecrets:
   - name: nexus-registry-secret-v2
 nameOverride: "springbootapi"
 fullnameOverride: "springbootapi-app"
-
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
@@ -25,25 +22,22 @@ serviceAccount:
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
-
 podAnnotations: {}
 podLabels: {}
-
 podSecurityContext: {}
-  # fsGroup: 2000
+# fsGroup: 2000
 
 securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+# capabilities:
+#   drop:
+#   - ALL
+# readOnlyRootFilesystem: true
+# runAsNonRoot: true
+# runAsUser: 1000
 
 service:
   type: ClusterIP
   port: 80
-
 ingress:
   enabled: true
   className: "nginx"
@@ -55,23 +49,22 @@ ingress:
     - host: springboot-k8s.devnerd.store
       paths:
         - path: /
-          pathType: Prefix 
+          pathType: Prefix
   tls:
-   - secretName: springboot-domain-tls
-     hosts:
-       - springboot-k8s.devnerd.store
-
+    - secretName: springboot-domain-tls
+      hosts:
+        - springboot-k8s.devnerd.store
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+# We usually recommend not to specify default resources and to leave this as a conscious
+# choice for the user. This also increases chances charts run on environments with little
+# resources, such as Minikube. If you do want to specify resources, uncomment the following
+# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+# limits:
+#   cpu: 100m
+#   memory: 128Mi
+# requests:
+#   cpu: 100m
+#   memory: 128Mi
 
 livenessProbe:
   httpGet:
@@ -81,14 +74,12 @@ readinessProbe:
   httpGet:
     path: /
     port: http
-
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
-
 # Additional volumes on the output Deployment definition.
 volumes: []
 # - name: foo
@@ -103,7 +94,5 @@ volumeMounts: []
 #   readOnly: true
 
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
