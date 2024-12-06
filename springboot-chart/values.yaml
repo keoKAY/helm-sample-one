@@ -80,14 +80,14 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 # Additional volumes on the output Deployment definition.
-volumes: []
-# - name: image-vol
-#   persistentVolumeClaim:
-#     claimName: postgres-vol-postgres-app-0
-volumeMounts: []
-# - name: image-vol
-#   mountPath: "/app/filestorage/images"
-#   readOnly: true
+volumes: 
+  - name: image-vol
+    persistentVolumeClaim:
+      claimName: postgres-vol-postgres-app-0
+volumeMounts: 
+  - name: image-vol
+    mountPath: "/app/filestorage/images"
+  # readOnly: true
 
 nodeSelector: {}
 tolerations: []
