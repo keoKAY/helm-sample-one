@@ -4,7 +4,7 @@ image:
   repository: registry-new.devnerd.store/spring-fileupload-image-nexus
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "ee6338c7"
+  tag: "3af2c1b2"
 imagePullSecrets:
   - name: nexus-registry-secret-v2
 nameOverride: "springbootapi"
@@ -81,12 +81,12 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 # Additional volumes on the output Deployment definition.
 volumes: []
-  # - name: image-vol
-  #   persistentVolumeClaim:
-  #     claimName: postgres-vol-postgres-app-0
+# - name: image-vol
+#   persistentVolumeClaim:
+#     claimName: postgres-vol-postgres-app-0
 volumeMounts: []
-  # - name: image-vol
-  #   mountPath: "/app/filestorage/images"
+# - name: image-vol
+#   mountPath: "/app/filestorage/images"
 #   readOnly: true
 
 nodeSelector: {}
